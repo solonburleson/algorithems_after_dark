@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Feb 11</title>
+	<script type="text/javascript">
+	function Sum(arr){
+		var total = 0;
+		for(var i = 0; i < arr.length; i++){
+			total += arr[i];
+		}
+		return total;
+	}
+	function StepCombo(stairs,steps){
+		var special = 0;
+		var arr = [];
+		var results = [];
+
+		for(var i = 0; i < stairs; i++){
+			arr.push(steps[0]);
+		}
+	    results.push(arr);
+	    console.log(results);
+	    console.log(Sum(arr));
+	    arr = [];
+	    arr.length = 0;
+
+	    while(special < stairs){
+	    	while(Sum(arr) <= stairs){
+	    		if(arr.length == special){
+	    			arr.push(steps[1]);
+	    		}
+	    		else{
+	    			arr.push(steps[0])
+	    		}
+
+	    		if(Sum(arr) < stairs){
+	    			arr.length ++;
+	    		}
+	    		else if(Sum(arr) == stairs){
+	    			results.push(arr);
+	    			console.log(results)
+	    			special ++;
+	    			arr = [];
+	    			arr.length = 0;
+	    		}
+	    		else{
+	    			special ++; 
+	    			arr = [];
+	    			arr.length = 0;
+	    		}
+	    	}
+	    }
+	    console.log(results)
+		return results;
+	}
+	StepCombo(4,[1,2])
+	</script>
+</head>
+<body>
+
+</body>
+</html>
