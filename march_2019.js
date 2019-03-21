@@ -15,3 +15,20 @@ function reverseWords(str){
     return str;
 }
 console.log(reverseWords("the big blue house"));
+
+function rvsWords2(str){
+    var output = "";
+    var temp = "";
+    for( var i = str.length - 1; i >= 0; i--){
+        if(str[i] == " " && i != 0){
+            temp = str[i] + temp;
+            output = temp + output;
+            temp = "";
+        } else{
+            temp += str[i];
+        }
+    }
+    output = temp + output;
+    return output;
+}
+console.log(rvsWords2("The Big Blue House"));
