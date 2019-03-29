@@ -70,3 +70,30 @@ console.log(comPool([3,1,3]));
 console.log(comPool([3,0,1,3,0,2]));
 console.log(comPool([3,0,1,3,0,0]));
 console.log(comPool([0,1,3,0,1,3,0,5]));
+
+// 3/29/2019
+function inversion(arr){
+    count = 0;
+    for(var i = 0; i < arr.length - 1; i++){
+        for(var j = i+1; j < arr.length; j++){
+            if(arr[i] > arr[j]){
+                count ++;
+            }
+        }
+    }
+    return count;
+
+    // for(var i = 0; i < arr.length - 1; i++){
+    //     var temp = arr[i];
+    //     if(arr[i] > arr[i+1]){
+    //         arr[i] = arr[i+1];
+    //         arr[i+1] = temp;
+    //         count ++;
+    //     }
+    //     else if(arr[i] < arr[i+1]){
+    //         i = 0;
+    //     }
+    // }
+}
+console.log(inversion([2,4,1,3,5]));
+console.log(inversion([5,4,3,2,1]));
