@@ -36,8 +36,27 @@ function aVeryBigSum(ar) {
     }
     return output;
 }
+// 5 - diagonal matrix difference. Find the difference between the 
+// diagonals of a given square matrix
+function diagonalDifference(arr) {
+    var pd = 0;
+    var sd = 0;
+    var index = arr.length - 1;
+    for (var i = 0; i < arr.length; i++){ 
+        pd += arr[i][i];
+        sd += arr[index][i];
+        index --;
+    }
 
-// 4/9/2019
+    return Math.abs(pd - sd);
+}
+console.log(diagonalDifference(
+    [[11,2,4],
+    [4,5,6],
+    [10,8,-12]
+]));
+
+// 4/10/2019
 // Given two strings, compute the edit distance between them.
 // For example, the edit distance between “kitten” and “sitting” 
 // is three: substitute the “k” for “s”, substitute the “e” for “i”, 
