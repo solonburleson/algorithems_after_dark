@@ -414,11 +414,11 @@ function FirstFactorial(num) {
 }
 
 
-          |
-      _   |
-|    | |  |
-|   _| |  |
-|__|   |__|
+//           |
+//       _   |
+// |    | |  |
+// |   _| |  |
+// |__|   |__|
 
 
 function comPool(arr){
