@@ -36,3 +36,12 @@ function aVeryBigSum(ar) {
     }
     return output;
 }
+
+// 4/9/2019
+// Given two strings, compute the edit distance between them.
+// For example, the edit distance between “kitten” and “sitting” 
+// is three: substitute the “k” for “s”, substitute the “e” for “i”, 
+// and append a “g”.
+function editDistance(strA, strB){
+    var edits = 0;
+}
