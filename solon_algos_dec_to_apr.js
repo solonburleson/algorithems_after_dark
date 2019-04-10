@@ -506,7 +506,9 @@ function maxProfit(arr){
 
 function editDistance(str1, str2){
     var count = 0
-    count = Math.abs(str1.length-str2.length)
+    if(str2.length < str1.length){
+      count = str1.length - str2.length
+    }
     for(var i = 0; i < str2.length; i++){
         if(str2[i] != str1[i]){
             count++
