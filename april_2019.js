@@ -64,3 +64,26 @@ console.log(diagonalDifference(
 function editDistance(strA, strB){
     var edits = 0;
 }
+
+// 4/11/2019
+// Hackerrank #6
+// given an array determine the fractions of its contents that are 
+// positve negative and zero. To a precsion of .000000.
+// Ex: [1,0,1,-1] positve = 2/4 or .500000 negative = 1/4 or .250000
+function plusMinus(arr) {
+    var pos = 0;
+    var neg = 0;
+    var zero = 0;
+    for (var i = 0; i < arr.length; i++){
+        if (arr[i] > 0) {
+            pos++;
+        } else if (arr[i] < 0) {
+            neg++;
+        } else {
+            zero++;
+        }
+    }
+    console.log((pos / arr.length).toFixed(6));
+    console.log((neg / arr.length).toFixed(6));
+    console.log((zero / arr.length).toFixed(6));
+}
