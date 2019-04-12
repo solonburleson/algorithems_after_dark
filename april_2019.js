@@ -87,3 +87,38 @@ function plusMinus(arr) {
     console.log((neg / arr.length).toFixed(6));
     console.log((zero / arr.length).toFixed(6));
 }
+
+// 4/12/2019
+// find the next largest palindrome given a number that is a palindrome
+// ex: given 121 the next largest palindrome would be 131
+function nextPalindrome(n){
+    if(n == 99){
+      return 101;
+    }
+    var str = n.toString();
+    var count = 1;
+    while(str.length > 2){
+        if(str[0] == str[str.length - 1]){
+            str = str.slice(1,str.length - 1);
+            count *= 10;
+        }
+    }
+    if(str.length == 1){
+        if(str[0] == "9"){
+          n += count/10 * 11;
+        } else {
+          n += count;
+        }
+    } else {
+      if(str[0] == "9"){
+          n += count/10 * 11;
+        } else {
+          n += count * 11;
+        }
+    }
+    return n;
+}
+console.log(nextPalindrome(22));
+console.log(nextPalindrome(99));
+console.log(nextPalindrome(1239321));
+console.log(nextPalindrome(12399321));
