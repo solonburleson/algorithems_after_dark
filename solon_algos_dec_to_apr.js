@@ -414,11 +414,11 @@ function FirstFactorial(num) {
 }
 
 
-          |
-      _   |
-|    | |  |
-|   _| |  |
-|__|   |__|
+//           |
+//       _   |
+// |    | |  |
+// |   _| |  |
+// |__|   |__|
 
 
 function comPool(arr){
@@ -516,3 +516,31 @@ function editDistance(str1, str2){
     }
     return count
 }
+
+
+// 4/15/2019 lowest number of moves to clear a fish tank when fish of size X is injected into the tank by adding or removing a fish
+
+function hungryFish(fish, tank){
+    var moves = 0;
+    tank = tank.sort(function(a, b){return a-b;});
+    while(tank.length > 0){
+        if(fish > tank[0]){
+            fish+=tank[0]
+            tank.shift()
+        }
+        if(fish+fish-1 < tank[0]){
+            tank.shift();
+            moves++;
+        }
+        else if(fish <= tank[0]){
+            tank.unshift(fish-1)
+            moves++;
+        }
+    }
+  
+    return moves
+}
+
+console.log(hungryFish(10, [9,20,25,100]))
+console.log(hungryFish(3, [25,20,100,400,500]))
+console.log(hungryFish(50, [25,20,9,100]))
