@@ -544,3 +544,53 @@ function hungryFish(fish, tank){
 console.log(hungryFish(10, [9,20,25,100]))
 console.log(hungryFish(3, [25,20,100,400,500]))
 console.log(hungryFish(50, [25,20,9,100]))
+
+
+
+// 4/16/2019 Morse code variations 
+function morseCode(str){
+    var morse = {
+        'a': '.-',
+        'b': '-...',
+        'c': '-.-.',
+        'd': '-..',
+        'e': '.',
+        'f': '..-.',
+        'g': '--.',
+        'h': '....',
+        'i': '..',
+        'j': '.---',
+        'k': '-.-',
+        'l': '.-..',
+        'm': '--',
+        'n': '-.',
+        'o': '---',
+        'p': '.--.',
+        'q': '--.-',
+        'r': '.-.',
+        's': '...',
+        't': '-',
+        'u': '..-',
+        'v': '...-',
+        'w': '.--',
+        'x': '-..-',
+        'y': '-.--',
+        'z': '--..'
+    }
+    var str_morse = '';
+    for(var i = 0; i < str.length; i++){
+        str_morse += morse[str[i]]
+    }
+    console.log(str_morse)
+    for(i = 0; i < str_morse.length; i++){
+        for(var key in morse){
+            if(morse[key] == str_morse[i] + str_morse[i+1]){
+                console.log(key)
+            }
+        }
+    }
+}
+
+morseCode('eta')
+
+// put on ice come back at another time.  converted string to code, had trouble finding all permutations of that code.  Recursion?
