@@ -655,3 +655,24 @@ board = [[5,3,0,0,7,0,0,0,0],
         [0,6,0,0,0,0,2,8,0],
         [0,0,0,4,1,9,0,0,5],
         [0,0,0,0,8,0,0,7,9]]
+
+//create dictionary of possible answers for each subindex
+//create sub 3x3s
+
+function sudokuSolver(board){
+    var boxes = {};
+    var values = {
+        '[0][0]': 5,
+        '[0][1]': 3,
+        '[0][2]': [1,2,4],
+        '[1][0]': 6,
+        '[1][1]': [2,4,7],
+        '[1][2]': [2,4,7],
+        '[2][0]': [1,2],
+        '[2][1]': 9,
+        '[2][2]': 8,
+    }
+    for(var i = 0; i < board.length; i++){
+        
+    }
+}
