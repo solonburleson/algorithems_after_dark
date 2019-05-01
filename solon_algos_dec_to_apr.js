@@ -646,7 +646,7 @@ function sudokuChecker(completed){
 }
 
 //Sudoku board solver
-board = [[5,3,0,0,7,0,0,0,0],
+var board = [[5,3,0,0,7,0,0,0,0],
         [6,0,0,1,9,5,0,0,0],
         [0,9,8,0,0,0,0,6,0],
         [8,0,0,0,6,0,0,0,3],
@@ -660,19 +660,73 @@ board = [[5,3,0,0,7,0,0,0,0],
 //create sub 3x3s
 
 function sudokuSolver(board){
-    var boxes = {};
-    var values = {
-        '[0][0]': 5,
-        '[0][1]': 3,
-        '[0][2]': [1,2,4],
-        '[1][0]': 6,
-        '[1][1]': [2,4,7],
-        '[1][2]': [2,4,7],
-        '[2][0]': [1,2],
-        '[2][1]': 9,
-        '[2][2]': 8,
+    var dict = {'count': 0};
+    for(var i = 0; i < board.length; i++){
+        for(var j = 0; j < board.length; j++){
+            //console.log("i: "+ i + ", " + Math.floor((i)/3) + ", j: " + j + ", " + + Math.floor((j)/3));
+            if(board[i][j] !== 0){
+                 dict['['+i+']['+j+']'] = board[i][j]
+                 if(!('col'+j in dict)){
+                    dict['col'+j] = [board[i][j]]
+                }
+                else{
+                    dict['col'+j].push(board[i][j])
+                }
+                if(!('row'+i in dict)){
+                    dict['row'+i] = [board[i][j]]
+                }
+                else{
+                    dict['row'+i].push(board[i][j])
+                    // 
+                }
+                if(!('box['+Math.floor(i/3)+']['+Math.floor(j/3)+']' in dict)){
+                    dict['box['+Math.floor(i/3)+']['+Math.floor(j/3)+']'] = [board[i][j]]
+                }
+                else{
+                    dict['box['+Math.floor(i/3)+']['+Math.floor(j/3)+']'].push(board[i][j])
+                }
+            }
+            else{
+                dict['count']++;
+                dict['['+i+']['+j+']'] = []
+            }
+        } 
     }
     for(var i = 0; i < board.length; i++){
-        
+        for(var j = 0; j < board.length; j++){
+            if(board[i][j] == 0){
+                var n = 0;
+                while(n < 9){
+                    n++
+                    if(dict['col'+j].includes(n)){
+                        continue
+                    }
+                    else if(dict['row'+i].includes(n)){
+                        continue
+                    }
+                    else if(dict['box['+Math.floor(i/3)+']['+Math.floor(j/3)+']'].includes(n)){
+                        continue
+                    }
+                    else{
+                        dict['['+i+']['+j+']'].push(n)
+                    }
+
+                }
+                if(dict['['+i+']['+j+']'].length == 1){
+                    board[i][j] = dict['['+i+']['+j+']'][0]
+                    dict['count']--;
+                }
+            }
+        }
     }
+    if(dict['count'] > 0){
+      board = sudokuSolver(board);
+    }
+    else{
+      return board;
+    }
+    return board
+
 }
+
+console.log(sudokuSolver(board))
