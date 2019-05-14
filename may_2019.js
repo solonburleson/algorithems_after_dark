@@ -106,3 +106,18 @@ function buyLowSellHigh(arr){
     return profit;
 }
 console.log(buyLowSellHigh([9,11,8,5,7,10]));
+
+// biased coin toss
+function toss_biased(){
+    var bias = Math.floor(Math.random()*98)+2;
+    while(bias == 50){
+        bias = Math.floor(Math.random()*98)+2;
+    }
+    var toss = Math.floor(Math.random()*100) + 1;
+    if(toss <= bias){
+        return 0;
+    } else {
+        return 1;
+    }
+}
+console.log(toss_biased());
