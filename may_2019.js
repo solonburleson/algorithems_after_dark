@@ -121,3 +121,24 @@ function toss_biased(){
     }
 }
 console.log(toss_biased());
+
+// 5/20/2019
+// Car parking
+// square parking structure with an array of 1 and 0.
+// 1 is a car being parked 0 is a space ex:
+// [
+// [ 1,0,0 ],
+// [ 1,1,0 ],
+// [ 1,0,1 ]]
+function carParking(arr){
+    var output = [];
+    for(var i = 0; i < arr.length; i ++){
+        for(var j = 0; j < arr.length; j++){
+            if(arr[j][i] == 0){
+                return output = [j+1, i+1];
+            }
+        }
+    }
+    return [0,0];
+}
+console.log(carParking([[1,0,0],[1,1,0],[1,0,1]]));
