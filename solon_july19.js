@@ -19,20 +19,30 @@ class SLL {
     }
 
     swapTwo(){
-        var runner = this.head.next;
         var prev = this.head;
+        var runner = this.head.next;
         var holder = prev;
-        if(prev = this.head){
-            prev.next = runner.next;
-            runner.next = prev;
-            this.head = runner;
+        while(runner !== null) {
+            if(prev !== holder){
+                holder.next = runner;
+            }
+            if(prev === this.head){
+                this.head = runner;
+            }
+            if(runner.next){
+                prev.next = runner.next;
+                runner.next = prev;
+            } else {
+                prev.next = null;
+                runner.next = prev;
+            }
+            holder = prev;
+            prev = prev.next;
+            if(!prev || !prev.next){
+                break;
+            };
+            runner = prev.next;
         }
-        prev = prev.next
-        runner = prev.next
-        console.log("Holder: "+ holder.value + " Prev: " + prev.value + " Runner: " + runner.value)
-        holder.next = runner;
-        runner.next = prev;
-        prev.next = null;
     }
 
     printSLL(){
